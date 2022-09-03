@@ -4,7 +4,8 @@ const app = express();
 const date = require(__dirname+"/date.js");
 const mongoose= require("mongoose");
 const _ = require("lodash");
-mongoose.connect("mongodb+srv://vikash3208:Vikash%402000@logan.xn9em.mongodb.net/todolistDB" , {useNewUrlParser:true});
+const dotenv=require("dotenv").config();
+mongoose.connect(process.env.CONNECT_URL , {useNewUrlParser:true});
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
@@ -25,6 +26,7 @@ const food = new Item({
   name:"food"
 });
 
+
 const study = new Item({
   name:"study"
 });
@@ -42,12 +44,12 @@ app.get("/", function(req , res){
         if(err){
           console.log(err);
         }});
-
+res.render("list",{name:date.getDate() , newitemList:x});
     }
 
     else{
 
-      res.render("list",{name:"today" , newitemList:x});
+      res.render("list",{name:date.getDate() , newitemList:x});
     }
 });
 
