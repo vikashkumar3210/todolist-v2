@@ -17,7 +17,10 @@ Screenshoot
 - CSS custom properties
 - bootstrap grid properties
 - Mobile-first workflow
--  Family: [Outfit](https://fonts.google.com/specimen/Outfit) for font style
+- NodeJs ( ExpressJs)
+- MongoDB Atlas
+- EJS
+
 
 
 
